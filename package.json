@@ -12,7 +12,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "upload": "tsc && npm publish"
+    "upload": "tsc && npm publish",
+    "tsc": "tsc"
   },
   "author": "Gold Development",
   "license": "ISC",

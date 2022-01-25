@@ -1,6 +1,8 @@
 // Models
+export { NilsServiceOptions } from './model/nils-service-options';
+export { CostLine } from './model/cost-line';
+export { MenuItem } from './model/menu-item';
 export { User } from './model/user';
-export { ConfigOptions } from './model/config-options';
 // Services
 export { NilsService } from './service/nils.service';
 // Modules
