@@ -1,9 +1,10 @@
 // Models
-export { NilsServiceOptions } from './model/nils-service-options';
 export { CostLine } from './model/cost-line';
 export { MenuItem } from './model/menu-item';
+export { NilsError } from './model/nils-error';
+export { NilsServiceOptions } from './model/nils-service-options';
 export { User } from './model/user';
-// Services
-export { NilsService } from './service/nils.service';
 // Modules
 export { NilsModule } from './module/nils.module';
+// Services
+export { NilsService } from './service/nils.service';
