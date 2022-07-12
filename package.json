@@ -1,6 +1,6 @@
 {
   "name": "@gold-development-official/nils-api-ts",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Nils API Typescript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,7 +11,7 @@
     "url": "https://github.com/gold-development-official/nils-api-ts.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "tsc && node dist/test",
     "upload": "tsc && npm publish",
     "tsc": "tsc"
   },
