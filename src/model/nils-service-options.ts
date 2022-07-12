@@ -1,6 +1,7 @@
 export interface NilsServiceOptions {
   email: string;
-  password: string;
+  hashedPassword?: string|null,
+  rawPassword?: string|null,
   host: string;
   onError?: (msg: any) => void;
 }
