@@ -68,21 +68,10 @@ export class NilsService {
               if ([401, 403, 500].indexOf(response.statusCode) >= 0) {
                 this._user = null;
                 if (response.body && response.body.message) {
-                  reject({
-                    status: response.body.status,
-                    code: JSON.parse(response.body.code),
-                    message: JSON.parse(response.body.message),
-                    detail: JSON.parse(response.body.detail),
-                    externalServicesErrorMsg: JSON.parse(
-                      response.body.externalServicesErrorMsg
-                    ),
-                    validationErrors: JSON.parse(
-                      response.body.validationErrors
-                    ),
-                  });
                   this._configOptions.onError?.apply(this._configOptions, [
                     response.body,
                   ]);
+                  reject(this.rejectError(response.body));
                   return;
                 } else {
                   reject("Unknown NILS Error");
@@ -180,16 +169,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -279,16 +259,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -366,16 +337,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -464,16 +426,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -562,16 +515,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -660,16 +604,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -758,16 +693,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -858,16 +784,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -944,16 +861,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -1042,16 +950,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -1140,16 +1039,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -1283,16 +1173,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -1354,16 +1235,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -1433,16 +1305,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -1504,16 +1367,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -1583,16 +1437,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -1654,16 +1499,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -1736,16 +1572,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -1807,16 +1634,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -1891,16 +1709,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -1973,16 +1782,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -2000,7 +1800,7 @@ export class NilsService {
     });
   }
 
-  public async tatSyncJobOverview(jobNo: string|number): Promise<boolean> {
+  public async tatSyncJobOverview(jobNo: string | number): Promise<boolean> {
     // First login if needed
     const user: User | null = await this.login().catch((err) => null);
     if (!user) {
@@ -2044,16 +1844,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -2126,16 +1917,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -2197,16 +1979,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -2276,16 +2049,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -2347,16 +2111,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -2429,16 +2184,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -2456,7 +2202,9 @@ export class NilsService {
     });
   }
 
-  public async tatSyncJobServicessRequirement(requirementNo: number|string): Promise<boolean> {
+  public async tatSyncJobServicessRequirement(
+    requirementNo: number | string
+  ): Promise<boolean> {
     // First login if needed
     const user: User | null = await this.login().catch((err) => null);
     if (!user) {
@@ -2500,16 +2248,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -2582,16 +2321,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -2609,7 +2339,7 @@ export class NilsService {
     });
   }
 
-  public async tatSyncLogisticRole(ruleId: number|string): Promise<boolean> {
+  public async tatSyncLogisticRole(ruleId: number | string): Promise<boolean> {
     // First login if needed
     const user: User | null = await this.login().catch((err) => null);
     if (!user) {
@@ -2653,16 +2383,7 @@ export class NilsService {
               this._configOptions.onError?.apply(this._configOptions, [
                 response.body,
               ]);
-              reject({
-                status: response.body.status,
-                code: JSON.parse(response.body.code),
-                message: JSON.parse(response.body.message),
-                detail: JSON.parse(response.body.detail),
-                externalServicesErrorMsg: JSON.parse(
-                  response.body.externalServicesErrorMsg
-                ),
-                validationErrors: JSON.parse(response.body.validationErrors),
-              });
+              reject(this.rejectError(response.body));
               return;
             } else {
               this._configOptions.onError?.apply(this._configOptions, [
@@ -2684,5 +2405,55 @@ export class NilsService {
     const shaSum = crypto.createHash("sha1");
     shaSum.update(rawPassword);
     return shaSum.digest("hex");
+  }
+
+  private rejectError(body: any) {
+    let status: number = 500;
+    let code: any = undefined;
+    let message: any = undefined;
+    let detail: string | null = body.detail;
+    let externalServicesErrorMsg: string | null = null;
+    let validationErrors: any[] = null;
+
+    if (body) {
+      if (body.status) {
+        try {
+          status = parseInt(body.status, 10);
+        } catch (e) {}
+      }
+
+      if (body.code) {
+        try {
+          code = JSON.parse(body.code);
+        } catch (e) {}
+      }
+
+      if (body.message) {
+        try {
+          message = JSON.parse(body.message);
+        } catch (e) {}
+      }
+
+      if (body.externalServicesErrorMsg) {
+        try {
+          externalServicesErrorMsg = JSON.parse(body.externalServicesErrorMsg);
+        } catch (e) {}
+      }
+
+      if (body.validationErrors) {
+        try {
+          validationErrors = JSON.parse(body.validationErrors);
+        } catch (e) {}
+      }
+    }
+
+    return {
+      status: status,
+      code: code,
+      message: message,
+      detail: detail,
+      externalServicesErrorMsg: externalServicesErrorMsg,
+      validationErrors: validationErrors,
+    };
   }
 }
