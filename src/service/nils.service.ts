@@ -203,7 +203,7 @@ export class NilsService {
   public async updateTruckingVendorForJob(
     jobRouteActivityNo: string,
     jobActivityServiceNo: number,
-    vendorCode: string,
+    vendorCode: string | null,
     planned: boolean,
     confirmed: boolean,
     userId: string
@@ -214,6 +214,27 @@ export class NilsService {
       return Promise.reject("Could not retrieve user or login");
     }
 
+    let body: {
+      jobRouteActivityNo: string,
+      jobActivityServiceNo: number,
+      vendorCode?: string | null,
+      planned: boolean,
+      confirmed: boolean,
+      userId: string,
+    } = {
+      jobRouteActivityNo: jobRouteActivityNo,
+      jobActivityServiceNo: jobActivityServiceNo,
+      planned: planned,
+      confirmed: confirmed,
+      userId: userId,
+    };
+
+    if (vendorCode) {
+      body.vendorCode = vendorCode;
+    }
+    
+
+
     // API call
     return new Promise((resolve, reject) => {
       put(
@@ -222,14 +243,7 @@ export class NilsService {
           withCredentials: true,
           strictSSL: false,
           json: true,
-          body: {
-            jobRouteActivityNo: jobRouteActivityNo,
-            jobActivityServiceNo: jobActivityServiceNo,
-            vendorCode: vendorCode,
-            planned: planned,
-            confirmed: confirmed,
-            userId: userId,
-          },
+          body: body,
           headers: {
             cookie: this._cookie,
           },
