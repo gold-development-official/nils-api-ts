@@ -2425,25 +2425,41 @@ export class NilsService {
       if (body.code) {
         try {
           code = JSON.parse(body.code);
-        } catch (e) {}
+        } catch (e) {
+          if (typeof(body.code) === 'string') {
+            code = body.code;
+          }
+        }
       }
 
       if (body.message) {
         try {
           message = JSON.parse(body.message);
-        } catch (e) {}
+        } catch (e) {
+          if (typeof(body.message) === 'string') {
+            message = body.message;
+          }
+        }
       }
 
       if (body.externalServicesErrorMsg) {
         try {
           externalServicesErrorMsg = JSON.parse(body.externalServicesErrorMsg);
-        } catch (e) {}
+        } catch (e) {
+          if (typeof(body.externalServicesErrorMsg) === 'string') {
+            externalServicesErrorMsg = body.externalServicesErrorMsg;
+          }
+        }
       }
 
       if (body.validationErrors) {
         try {
           validationErrors = JSON.parse(body.validationErrors);
-        } catch (e) {}
+        } catch (e) {
+          if (typeof(body.validationErrors) === 'string') {
+            validationErrors = body.validationErrors;
+          }
+        }
       }
     }
 
