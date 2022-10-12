@@ -1,6 +1,6 @@
 {
   "name": "@gold-development-official/nils-api-ts",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Nils API Typescript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
